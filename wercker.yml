@@ -3,5 +3,6 @@ build:
   steps:
     - wercker/pip-install@0.0.6
     - pip-install:
+        requirements_file: ""
         packages_list: "awscli"
     - validate-wercker-step
