@@ -1,0 +1,8 @@
+name: aws-opsworks-deploy
+version: 0.0.1
+description: |
+  Deploy an app to an opsworks layer
+keywords:
+  - aws
+  - opsworks
+  - deploy
