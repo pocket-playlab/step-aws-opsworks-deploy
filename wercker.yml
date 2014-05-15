@@ -1,4 +1,6 @@
 box: wercker/default
 build:
   steps:
+  	- pip-install
+        packages_list: "awscli"
     - validate-wercker-step
