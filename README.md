@@ -31,11 +31,14 @@ deploy:
 # Example
 
 ```
-deploy:
-  steps:
-    - aws-opsworks-deploy:
-        access_key_id: <key>
-        secret_access_key: <key>
+- aws-opsworks-deploy:
+            access_key_id: <key>
+            secret_access_key: <secretkey>
+            default_region: us-east-1
+            default_ouput: json
+            stack_id: <stackid>
+            app_id: <appid>
+            instance_id: <instanceid>
 ```
 
 # Note
