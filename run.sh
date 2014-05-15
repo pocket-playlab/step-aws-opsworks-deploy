@@ -1,8 +1,10 @@
 #!/bin/bash
 
-if ! type aws &> /dev/null
-then
-	echo "aws is installed"
-else
-	echo "awscli is not installed"
-fi
+set -e
+
+export AWS_DEFAULT_REGION='$WERCKER_AWS_OPSWORKS_DEPLOY_DEFAULT_REGION'
+export AWS_ACCESS_KEY_ID='$WERCKER_AWS_OPSWORKS_DEPLOY_ACCESS_KEY_ID'
+export AWS_SECRET_ACCESS_KEY='$WERCKER_AWS_OPSWORKS_DEPLOY_SECRET_ACCESS_KEY'
+export AWS_DEFAULT_OUTPUT='$WERCKER_AWS_OPSWORKS_DEPLOY_DEFAULT_OUTPUT'
+
+aws opsworks create-deployment --stack-id '$WERCKER_AWS_OPSWORKS_DEPLOY_STACK_ID' --app-id '$WERCKER_AWS_OPSWORKS_DEPLOY_APP_ID' --instance-ids '$WERCKER_AWS_OPSWORKS_DEPLOY_INSTANCE_ID' --command "{\"Name\":\"deploy\"}"
