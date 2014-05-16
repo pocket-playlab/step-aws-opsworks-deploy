@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -e -x
 
 if [ ! -n "$WERCKER_AWS_OPSWORKS_DEPLOY_ACCESS_KEY_ID" ]
 then
