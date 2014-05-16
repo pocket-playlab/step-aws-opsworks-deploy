@@ -41,10 +41,6 @@ deploy:
             instance_id: <instanceid>
 ```
 
-# Note
-
-* The build will pass on Wercker if port: 8000 has been removed from the wercker.yml
-
 # Changelog
 
 ## 0.0.1
