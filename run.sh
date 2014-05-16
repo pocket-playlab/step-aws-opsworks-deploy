@@ -1,6 +1,9 @@
 #!/bin/bash
 
-set -e -x
+set -e
+
+export AWS_DEFAULT_REGION='us-east-1'
+export AWS_DEFAULT_OUTPUT='json'
 
 if [ ! -n "$WERCKER_AWS_OPSWORKS_DEPLOY_ACCESS_KEY_ID" ]
 then
