@@ -50,3 +50,7 @@ deploy:
 ## 0.0.2
 
 - Added some checks and logging
+
+## 0.0.3
+
+- Corrected variables format
