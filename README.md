@@ -54,3 +54,7 @@ deploy:
 ## 0.0.3
 
 - Corrected variables format
+
+## 0.0.5
+
+- Working version
