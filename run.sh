@@ -48,6 +48,8 @@ else
 	export AWS_DEFAULT_OUTPUT=$WERCKER_AWS_OPSWORKS_DEPLOY_DEFAULT_OUTPUT
 fi
 
+echo "Secret key = $AWS_SECRET_ACCESS_KEY"
+
 if [ ! -n "$WERCKER_AWS_OPSWORKS_DEPLOY_INSTANCE_ID" ]
 then
 	echo "Deploying on all instances"
