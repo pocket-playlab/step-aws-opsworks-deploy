@@ -58,3 +58,7 @@ deploy:
 ## 0.0.5
 
 - Working version
+
+## 0.0.6
+
+- Added DB migrations

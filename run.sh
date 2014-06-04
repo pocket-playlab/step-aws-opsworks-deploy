@@ -52,9 +52,9 @@ fi
 if [ ! -n "$WERCKER_AWS_OPSWORKS_DEPLOY_INSTANCE_ID" ]
 then
 	echo "Deploying on all instances"
-	aws opsworks create-deployment --stack-id $DEPLOY_STACK_ID --app-id $DEPLOY_APP_ID --command "{\"Name\":\"deploy\"}"
+	aws opsworks create-deployment --stack-id $DEPLOY_STACK_ID --app-id $DEPLOY_APP_ID --command "{\"Name\":\"deploy\", \"Args\":{\"migrate\":[\"true\"]}}"
 else
 	echo "Deploying on specified instances"
-	aws opsworks create-deployment --stack-id $DEPLOY_STACK_ID --app-id $DEPLOY_APP_ID --instance-ids $WERCKER_AWS_OPSWORKS_DEPLOY_INSTANCE_ID --command "{\"Name\":\"deploy\"}"
+	aws opsworks create-deployment --stack-id $DEPLOY_STACK_ID --app-id $DEPLOY_APP_ID --instance-ids $WERCKER_AWS_OPSWORKS_DEPLOY_INSTANCE_ID --command "{\"Name\":\"deploy\", \"Args\":{\"migrate\":[\"true\"]}}"
 fi
 

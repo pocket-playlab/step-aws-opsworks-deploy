@@ -1,5 +1,5 @@
 name: aws-opsworks-deploy
-version: 0.0.5
+version: 0.0.6
 description: |
   Deploy an app to an opsworks layer
 keywords:
