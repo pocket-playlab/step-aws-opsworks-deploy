@@ -48,10 +48,20 @@ else
 	export AWS_DEFAULT_OUTPUT=$WERCKER_AWS_OPSWORKS_DEPLOY_DEFAULT_OUTPUT
 fi
 
+cd $WERCKER_STEP_ROOT
+apt-get install mozjs
+curl -L http://github.com/micha/jsawk/raw/master/jsawk > jsawk
+chmod 755 jsawk
 
 if [ ! -n "$WERCKER_AWS_OPSWORKS_DEPLOY_INSTANCE_ID" ]
 then
 	echo "Deploying on all instances"
+	aws opsworks create-deployment --stack-id $DEPLOY_STACK_ID --app-id $DEPLOY_APP_ID --command "{\"Name\":\"deploy\", \"Args\":{\"migrate\":[\"true\"]}}"
+elif [ ! -n "$WERCKER_AWS_OPSWORKS_DEPLOY_LAYER_ID"]
+then
+	echo "Deploying on specified layer"
+	aws opsworks describe-instances --layer-id 798ff890-ed75-41aa-a104-7297be8f1865|jsawk 'return this.Instances'|jsawk 'return this.InstanceId'
+	
 	aws opsworks create-deployment --stack-id $DEPLOY_STACK_ID --app-id $DEPLOY_APP_ID --command "{\"Name\":\"deploy\", \"Args\":{\"migrate\":[\"true\"]}}"
 else
 	echo "Deploying on specified instances"
